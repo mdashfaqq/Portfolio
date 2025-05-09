@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Ashfaq Sharif - Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4f8cff;
+            --secondary: #232946;
+            --accent: #eebbc3;
+            --bg: #f4f4f4;
+            --card-bg: #fff;
+            --text: #232946;
+            --shadow: 0 4px 24px rgba(79, 140, 255, 0.08);
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #4f8cff 0%, #a259c6 100%);
+            color: var(--text);
+        }
+        header {
+            background: transparent;
+            color: #fff;
+            padding: 60px 0 30px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+        header p {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #e0e7ff;
+        }
+        .social.social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 28px;
+        }
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #fff;
+            background: var(--primary);
+            box-shadow: 0 4px 16px rgba(79, 140, 255, 0.18);
+            border: none;
+            transition: background 0.2s, transform 0.2s, color 0.2s;
+        }
+        .btn-social.github {
+            background: #232946;
+        }
+        .btn-social.linkedin {
+            background: #0077b5;
+        }
+        .btn-social:hover {
+            background: var(--accent);
+            color: var(--secondary);
+            transform: translateY(-2px) scale(1.06);
+        }
+        .container {
+            width: 95%;
+            max-width: 900px;
+            margin: -40px auto 0 auto;
+            padding: 0 0 40px 0;
+        }
+        .profile-card.profile-flex {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            justify-content: flex-start;
+            text-align: left;
+            background: var(--card-bg);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(79, 140, 255, 0.18);
+            padding: 36px 32px;
+            margin-bottom: 36px;
+            position: relative;
+        }
+        .profile.profile-left {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 6px solid var(--primary);
+            box-shadow: 0 2px 16px rgba(79, 140, 255, 0.15);
+            object-fit: cover;
+            margin: 0;
+            background: #fff;
+            flex-shrink: 0;
+        }
+        .about-content {
+            flex: 1;
+        }
+        .about-content h2 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        .skills, .services, .journey {
+            background: var(--card-bg);
+            margin: 24px 0;
+            padding: 24px 28px;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(79, 140, 255, 0.10);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .about, .skills, .services, .journey {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .about:hover, .skills:hover, .services:hover, .journey:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 8px 32px rgba(79, 140, 255, 0.13);
+        }
+        h2 {
+            text-align: left;
+            color: var(--primary);
+            margin-top: 0;
+        }
+        .skills-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .skill-bar {
+            margin: 12px 0;
+        }
+        .skill-label {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .bar-bg {
+            background: #e0e7ff;
+            border-radius: 8px;
+            height: 16px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .bar-fill {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            height: 100%;
+            width: 0;
+            border-radius: 8px;
+            transition: width 1.2s cubic-bezier(.4,2,.6,1);
+        }
+        .services ul {
+            padding-left: 20px;
+        }
+        .services li {
+            margin-bottom: 8px;
+            font-size: 1.08rem;
+        }
+        footer {
+            background: var(--secondary);
+            color: #fff;
+            text-align: center;
+            padding: 18px 0 10px 0;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        @media (max-width: 900px) {
+            .profile-card.profile-flex {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 28px 10px;
+            }
+            .profile.profile-left {
+                margin-bottom: 18px;
+            }
+            .about-content {
+                width: 100%;
+            }
+        }
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 50%;
+            border: 6px solid #4a90e2;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            background: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>I'm Mohamed Ashfaq Sharif</h1>
+        <p>B.Tech Cyber Security Student</p>
+        <div class="social social-buttons">
+            <a href="https://www.linkedin.com/in/ashfaq-a-808386321/" class="btn-social linkedin" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/mdashfaqq" class="btn-social github" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="profile-card profile-flex">
+            <img src="profile.jpg" alt="Profile Photo" class="profile-photo">
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>I am currently pursuing B.Tech in Cyber Security at SRM Institute of Science and Technology. Passionate about technology and the evolving world of cyber defense, I am focused on learning the latest tools, protocols, and practices to build a safer digital world.</p>
+            </div>
+        </div>
+
+        <section class="skills">
+            <h2>My Skills</h2>
+            <div class="skills-list">
+                <div class="skill-bar">
+                    <div class="skill-label">C++</div>
+                    <div class="bar-bg"><div class="bar-fill" data-width="85%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-label">Python</div>
+                    <div class="bar-bg"><div class="bar-fill" data-width="80%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-label">Java</div>
+                    <div class="bar-bg"><div class="bar-fill" data-width="70%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-label">Linux System Administration</div>
+                    <div class="bar-bg"><div class="bar-fill" data-width="75%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-label">SQL</div>
+                    <div class="bar-bg"><div class="bar-fill" data-width="70%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-label">Networking</div>
+                    <div class="bar-bg"><div class="bar-fill" data-width="65%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-label">Ethical Hacking Fundamentals</div>
+                    <div class="bar-bg"><div class="bar-fill" data-width="60%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-label">Database Management</div>
+                    <div class="bar-bg"><div class="bar-fill" data-width="70%"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-label">Web Development (HTML, CSS)</div>
+                    <div class="bar-bg"><div class="bar-fill" data-width="75%"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <h2>My Services</h2>
+            <ul>
+                <li>Basic Web Development</li>
+                <li>Linux and Shell Scripting Help</li>
+                <li>SQL Database Design</li>
+                <li>Cyber Security Awareness & Presentations</li>
+            </ul>
+        </section>
+
+        <section class="journey">
+            <h2>My Journey in Cyber Security</h2>
+            <p>From the beginning of my academic career, I've been intrigued by how systems work and how they can be protected. My journey started with basic networking, moved into Red Hat System Administration, and grew through certifications and hands-on labs involving ethical hacking, cryptography, and secure systems design. I continue to pursue knowledge in intrusion detection, firewalls, and ethical hacking to be industry-ready.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Mohamed Ashfaq Sharif. All rights reserved.</p>
+    </footer>
+    <script>
+        // Animate skill bars on scroll
+        function animateSkillBars() {
+            document.querySelectorAll('.bar-fill').forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width;
+            });
+        }
+        window.addEventListener('DOMContentLoaded', animateSkillBars);
+        // Smooth scroll for anchor links (if any added in future)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
